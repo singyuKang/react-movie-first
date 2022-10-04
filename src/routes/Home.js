@@ -25,7 +25,6 @@ function Home() {
       {loading ? (
         <Loading />
       ) : (
-        // <h2>gssss</h2>
         <div className={styles.movies}>
           {" "}
           {movies.map((movie) => (
