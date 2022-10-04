@@ -15,13 +15,15 @@ function Home(){
     setMovies(json.data.movies);
     setLoading(false);
   }
+
+
   useEffect(()=> {
     getMovies();
   }, [])
   return (
     <div className={styles.container}>
       {loading ? <h1>Loading...</h1> : 
-        <div className={styles.movies}>{movies.map((movie) => (
+        <div className={styles.movies}> {movies.map((movie) => (
          <Movie 
          key = {movie.id}
          id={movie.id}
