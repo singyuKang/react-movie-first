@@ -8,13 +8,18 @@ function Home() {
   const [movies, setMovies] = useState([]);
 
   const getMovies = async () => {
-    setLoading(true);
-    const response = await fetch(
-      "https://yts.mx/api/v2/list_movies.json?minumum_rating=1&sort_by=year"
-    );
-    const json = await response.json();
-    setMovies(json.data.movies);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const response = await fetch(
+        "https://yts.mx/api/v2/list_movies.json?minumum_rating=1&sort_by=year"
+      );
+      const json = await response.json();
+      setMovies(json.data.movies);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
